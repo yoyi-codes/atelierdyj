@@ -1,0 +1,16 @@
+DATOS DE ALUMNAS:
+
+Carrera: Diseño Multimedial
+Materia: Diseño y Programación Web I
+Año: 2026
+Cuatrimestre: Tercer Cuatrimestre
+Comisión: DMN3BV
+Turno: Noche / Modalidad Virtual
+
+Integrantes:
+1. Fernandez, Daniela Belén
+2. Dávila Borges, Johana
+
+Docente: Omar Toyos
+Primer Parcial
+URL del proyecto: https://atelierdyj.netlify.app/

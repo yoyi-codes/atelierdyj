@@ -1,0 +1,265 @@
+/* 1. Importación de fuentes locales */
+@font-face {
+    font-family: 'Druk Wide';
+    src: url('fonts/DrukWideBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('fonts/Roboto-VariableFont_wdth,wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 2. Efecto de Grano / Film Grain */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 9999;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.15;
+    mix-blend-mode: overlay;
+}
+
+/* 3. Reseteo básico y tipografía general */
+body {
+    font-family: 'Roboto', Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1e00a5;
+    color: #000000;
+}
+
+/* =========================================
+   HEADER EDITORIAL
+   ========================================= */
+header {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    display: flex;
+    /* Usamos flex para centrar perfectamente */
+    justify-content: center;
+    align-items: center;
+    min-height: 40vh;
+    /* Asegura un buen alto para que respire */
+    padding: 2rem 1rem;
+}
+
+.header-content {
+    text-align: center;
+}
+
+header h1 {
+    font-family: 'Druk Wide', Impact, sans-serif;
+    font-size: 5.5rem;
+    /* Aumentado a tu gusto */
+    letter-spacing: 8px;
+    /* Ajuste para el nuevo tamaño */
+    text-transform: uppercase;
+    margin: 0 0 1.5rem 0;
+    line-height: 1;
+}
+
+header p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    /* Aumentado a tu gusto */
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin: 0;
+    color: #e0e0e0;
+}
+
+/* El rectángulo vacío alrededor de "Diseño Multimedial" */
+.box-outline {
+    border: 2px solid #ffffff;
+    padding: 0.4rem 1rem;
+    margin-left: 0.5rem;
+    display: inline-block;
+    transition: all 0.3s ease;
+    /* Transición suave */
+    cursor: default;
+}
+
+/* Efecto al pasar el mouse por el rectángulo */
+.box-outline:hover {
+    background-color: #ffffff;
+    color: #1a1a1a;
+    /* La letra se pone oscura para contrastar */
+}
+
+/* =========================================
+   CAJAS BLANCAS (Secciones de contenido)
+   ========================================= */
+section {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.referencia-concepto {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.imagen-original {
+    flex: 1 1 55%;
+}
+
+.imagen-original img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    display: block;
+}
+
+.descripcion {
+    flex: 1 1 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.descripcion p {
+    text-align: left;
+    line-height: 1.6;
+    margin: 0;
+    font-size: 1rem;
+    color: #222;
+}
+
+/* Título de la obra */
+.titulo-editorial {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Druk Wide', Impact, sans-serif;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 2rem;
+    color: #000000;
+}
+
+.linea-1,
+.linea-3 {
+    font-size: 2.3rem;
+    line-height: 0.85;
+}
+
+.linea-2 {
+    font-size: 0.95rem;
+    letter-spacing: 17px;
+    margin-right: -17px;
+    line-height: 1.2;
+    color: #333;
+}
+
+/* =========================================
+   CANVAS Y EQUIPO
+   ========================================= */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    background: transparent;
+    overflow: hidden; /* LA CORRECCIÓN DEL PROFESOR: Oculta el scroll horizontal/vertical */
+}
+
+main canvas {
+    display: block; /* Evita márgenes fantasma debajo del canvas */
+}
+
+.titulo-equipo {
+    font-family: 'Druk Wide', Impact, sans-serif;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+}
+
+.contenedor-integrantes {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.perfil {
+    text-align: center;
+}
+
+.foto-perfil {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #ffd000;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.foto-perfil:hover {
+    transform: translateY(-8px);
+}
+
+.perfil h3 {
+    margin-top: 1.2rem;
+    font-size: 1.4rem;
+    color: #2c3e50;
+}
+
+/* =========================================
+   FOOTER (Banda negra inferior)
+   ========================================= */
+footer {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    width: 100%;
+    padding: 3rem 0;
+    /* Más alto el footer */
+    margin-top: 4rem;
+    /* Separado de la caja de integrantes */
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.datos-cursada {
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    color: #cccccc;
+    display: flex;
+    /* Para alinear todo en horizontal en pantallas grandes */
+    justify-content: center;
+    gap: 10px;
+    /* Espacio entre cada dato y la barrita separadora */
+    flex-wrap: wrap;
+    /* Si la pantalla es chica, lo pasa a otra línea */
+}
+
+.datos-cursada span {
+    white-space: nowrap;
+    /* Evita que "Diseño Multimedial" se parta a la mitad */
+}
+
+.datos-cursada strong {
+    color: #ffffff;
+}
+
+.copyright p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
